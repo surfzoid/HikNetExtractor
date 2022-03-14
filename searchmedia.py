@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-from curses.ascii import NUL
-from hashlib import new
 import xml.etree.ElementTree as ET
+from hashlib import new
 
 
 def GetVideoList(XmlData):

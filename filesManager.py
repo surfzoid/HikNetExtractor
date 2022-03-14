@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 
-from datetime import datetime
-import time
-from Actions import ActionDllFile
-from config import url, SavePath, DaysToKeep
-from pathlib import Path
-from xmlreq import DllXmlReq
 import os
+from datetime import datetime
+from pathlib import Path
+
+from Actions import ActionDllFile
+from config import Channel, DaysToKeep, SavePath, url
+from xmlreq import DllXmlReq
 
 starttime = ""
 endtime = ""
@@ -17,8 +17,8 @@ name = ""
 def parsertspuri(rtspuri):
     # starttime=20220311T073025Z&amp;endtime=20220311T073547Z&amp;
     # name=08000000014000713&amp;size=27635176
-    #rtspuri = rtspuri.replace('rtsp://' + url + '/Streaming/tracks/101/?', '')
-    Delrtspurl = rtspuri.split("/Streaming/tracks/101/?")
+    #rtspuri = rtspuri.replace('rtsp://' + url + '/Streaming/tracks/" + Channel + "/?', '')
+    Delrtspurl = rtspuri.split("/Streaming/tracks/" + Channel + "/?")
     tmpdic = Delrtspurl[1].split("&")
     starttime = tmpdic[0].replace('starttime=', '').replace('T', '-') + "-"
     endtime = tmpdic[1].replace('endtime=', '').replace('T', '-') + "-"
@@ -27,7 +27,8 @@ def parsertspuri(rtspuri):
     #filename = starttime + endtime + name
     print("Downloading : " + name)
     print("size= " + str(size/1000000) + " M")
-    FsName = PrepareDir(starttime[0:8]) + starttime[0:15] + endtime[0:15] + name
+    FsName = PrepareDir(starttime[0:8]) + \
+        starttime[0:15] + "-" + endtime[0:15] + "-" + name
     ValidSize(FsName, size)
     return FsName
 
@@ -46,9 +47,9 @@ def donloadfs(rtspuris):
 
 
 def GetLocalip(rtspuri):
-    Delrtspurl = rtspuri.split("/Streaming/tracks/101/?")
+    Delrtspurl = rtspuri.split("/Streaming/tracks/" + Channel + "/?")
     Delrtspurl[0] = 'rtsp://' + url
-    return Delrtspurl[0] + "/Streaming/tracks/101/?" + Delrtspurl[1]
+    return Delrtspurl[0] + "/Streaming/tracks/" + Channel + "/?" + Delrtspurl[1]
 
 
 def PrepareDir(Day):

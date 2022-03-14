@@ -13,10 +13,10 @@
 
 from datetime import datetime
 
-from Actions import ActionDllFile, ActionGetSimplejson, ActionPost, ActionPostSimple, ActionPut
-from xmlreq import __SEARCH_MEDIA_XML
+from Actions import ActionPost
+from filesManager import donloadfs
 from searchmedia import GetVideoList
-from filesManager import DelOldestDir, donloadfs
+from xmlreq import __SEARCH_MEDIA_XML
 
 print(str(datetime.now()))
 # DelOldestDir()
@@ -25,11 +25,11 @@ print(str(datetime.now()))
 # ActionGetSimple('/ISAPI/System/Time')
 # ActionGetSimple('/ISAPI/ContentMgmt/search/profile')
 #ActionGet('/ISAPI/ContentMgmt/download' , __DOWNLOAD_REQUEST_XML)
-#ActionPost('/ISAPI/ContentMgmt/record/tracks/101/dailyDistribution', __XML_trackDailyParam)
+#ActionPost('/ISAPI/ContentMgmt/record/tracks/10" + Channel + "1/dailyDistribution', __XML_trackDailyParam)
 #Answer = ActionPost('/ISAPI/ContentMgmt/search',__SEARCH_MEDIA_XML)
 Answer = ActionPost('/ISAPI/ContentMgmt/search', __SEARCH_MEDIA_XML)
 donloadfs(GetVideoList(Answer))
 
 # ActionPut('/ISAPI/Security/sessionHeartbeat')
 # ActionGetSimplejson('/ISAPI/Security/token?format=json')
-# ActionDllFile('/ISAPI/ContentMgmt/download?playbackURI=rtsp://192.168.27.67/Streaming/tracks/101?starttime=2022-03-11%2003:00:52Z&amp;endtime=2022-03-11%2003:06:05Z&amp;name=08000000014000413&amp;size=25236932')
+# ActionDllFile('/ISAPI/ContentMgmt/download?playbackURI=rtsp://192.168.27.67/Streaming/tracks/10" + Channel + "1?starttime=2022-03-11%2003:00:52Z&amp;endtime=2022-03-11%2003:06:05Z&amp;name=08000000014000413&amp;size=25236932')

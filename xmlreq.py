@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 
 from datetime import datetime
-from config import username, password
+
+from config import Channel, password, username
 
 ToDay = datetime.now().strftime("%Y-%m-%d")
 startTime = ToDay + "T00:00:00Z"
 endTime = ToDay + "T23:59:59Z"
 
-__SEARCH_MEDIA_XML = "<?xml version=\"1.0\" encoding=\"utf-8\"?><CMSearchDescription><searchID>D96991DE-5108-48FC-8767-8A786CB3E03E</searchID><trackList><trackID>101</trackID></trackList><timeSpanList><timeSpan><startTime>" + startTime + "</startTime><endTime>" + \
+__SEARCH_MEDIA_XML = "<?xml version=\"1.0\" encoding=\"utf-8\"?><CMSearchDescription><searchID>D96991DE-5108-48FC-8767-8A786CB3E03E</searchID><trackList><trackID>" + Channel + "</trackID></trackList><timeSpanList><timeSpan><startTime>" + startTime + "</startTime><endTime>" + \
     endTime + "</endTime></timeSpan></timeSpanList><maxResults>50</maxResults><searchResultPostion>0</searchResultPostion><metadataList><metadataDescriptor>//recordType.meta.std-cgi.com</metadataDescriptor></metadataList></CMSearchDescription>"
 
-__exDOWNLOAD_REQUEST_XML = "<?xml version='1.0'?><downloadRequest><playbackURI>rtsp://192.168.8.147/Streaming/tracks/101/?starttime=20220306T111822Z&amp;endtime=20220306T112352Z&amp;name=ch01_08000000000000813&amp;size=78266368</playbackURI></downloadRequest>"
+__exDOWNLOAD_REQUEST_XML = "<?xml version='1.0'?><downloadRequest><playbackURI>rtsp://192.168.8.147/Streaming/tracks/1" + Channel + \
+    "01/?starttime=20220306T111822Z&amp;endtime=20220306T112352Z&amp;name=ch01_08000000000000813&amp;size=78266368</playbackURI></downloadRequest>"
 
 
 def DllXmlReq(rtspuri):

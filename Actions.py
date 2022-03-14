@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 
+import json
 from datetime import datetime
 
 import requests
-
-import json
 from requests.auth import HTTPDigestAuth
 
-from config import url, username, password
-
+from config import password, url, username
 
 #filename = str(datetime.now().strftime("%m-%d-%Y_%H:%M:%S")) + "nofilename.mp4"
 
