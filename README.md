@@ -16,6 +16,7 @@ git clone https://github.com/surfzoid/HikNetExtractor.git
 ##edit conf.py in cam1/HikNextractor and NVR/HikNextractor
 
 crontab -e
+
 3,18,33,48 * * * * ~/script/HikNetExtractor/NVR/HikNetExtractor.py
 
 3,18,33,48 * * * * ~/script/HikNetExtractor/cam1/HikNetExtractor.py
