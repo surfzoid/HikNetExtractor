@@ -17,7 +17,9 @@ git clone https://github.com/surfzoid/HikNetExtractor.git
 
 crontab -e
 3,18,33,48 * * * * ~/script/HikNetExtractor/NVR/HikNetExtractor.py
+
 3,18,33,48 * * * * ~/script/HikNetExtractor/cam1/HikNetExtractor.py
+
 3,18,33,48 * * * * ~/script/rsyncfbx.sh #sauvegarde des videos de la camera vers la maison
  
 # Enjoy
