@@ -4,7 +4,7 @@ from datetime import datetime
 
 from config import Channel, password, username
 
-ToDay = datetime.now().strftime("%Y-%m-%d")
+ToDay = datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #
 startTime = ToDay + "T00:00:00Z"
 endTime = ToDay + "T23:59:59Z"
 
