@@ -82,7 +82,7 @@ def ActionDllFile(Wanted, filename, XmlData):
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
         print(e)
-        raise SystemExit(e)
+        #raise SystemExit(e)
 
 
 def download(url: str, file_path='', attempts=2):
