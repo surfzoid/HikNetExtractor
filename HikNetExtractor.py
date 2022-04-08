@@ -12,12 +12,23 @@
 # ===============================================================================
 
 from datetime import datetime
+import sys
+import time
+
+import psutil
 
 from Actions import ActionPost
 from filesManager import donloadfs
 from searchmedia import GetVideoList
 from xmlreq import __SEARCH_MEDIA_XML
 
+procs = [p for p in psutil.process_iter() if 'python.exe' in p.name() and __file__ in p.cmdline()]
+if len(procs) > 1:
+    print('Process is already running...')
+    sys.exit(1)
+ 
+
+    
 print(str(datetime.now()))
 # DelOldestDir()
 # Action('/ISAPI/System/reboot')
