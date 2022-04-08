@@ -4,6 +4,7 @@ from asyncio.log import logger
 import json
 from datetime import datetime
 import os
+import sys
 import time
 from urllib.parse import urlparse
 
@@ -64,10 +65,19 @@ def ActionDllFile(Wanted, filename, XmlData):
                           allow_redirects=True, auth=HTTPDigestAuth(username, password), timeout=15) as r:
             if not "200" in str(r.status_code):
                 r = requests.get(url="http://" + url + "/ISAPI/ContentMgmt/download", data=XmlData, stream=True, allow_redirects=True, auth=HTTPDigestAuth(username, password), timeout=15)
-            
+    
+            total_length = r.headers.get('content-length')
+            dl = 0
+            total_length = int(total_length)
             with open(filename, 'wb') as f:
                 for chunk in r.iter_content(chunk_size=1024): 
                     if chunk: # filter out keep-alive new chunks
+                        
+                        dl += len(chunk)
+                        done = int(50 * dl / total_length)
+                        sys.stdout.write("\r[%s%s]" % ('=' * done, ' ' * (50-done)) )
+                        sys.stdout.flush()
+            
                         f.write(chunk)
                         f.flush()
                         os.fsync(f.fileno())
