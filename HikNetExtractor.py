@@ -13,8 +13,8 @@
 
 from datetime import datetime
 import sys
-import time
 
+from prompt_toolkit import Application
 import psutil
 
 from Actions import ActionPost
@@ -22,11 +22,20 @@ from filesManager import donloadfs
 from searchmedia import GetVideoList
 from xmlreq import __SEARCH_MEDIA_XML
 
-procs = [p for p in psutil.process_iter() if 'python.exe' in p.name() and __file__ in p.cmdline()]
-if len(procs) > 1:
-    print('Process is already running...')
-    sys.exit(1)
+gettrace= sys.gettrace()
+
+# For debugging
+debug_status=True if gettrace else False
+if debug_status:
+    print("Running in debug IDE")
+else:
+    print("Running outside debug IDE")
+    procs = [p for p in psutil.process_iter() if 'python' in p.name() and __file__ in p.cmdline()]
+    if len(procs) > 1:
+        print('Process is already running...')
+        sys.exit(1)
  
+
 
     
 print(str(datetime.now()))
