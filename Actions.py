@@ -70,7 +70,7 @@ def ActionDllFile(Wanted, filename, XmlData):
             dl = 0
             total_length = int(total_length)
             with open(filename, 'wb') as f:
-                for chunk in r.iter_content(chunk_size=1024): 
+                for chunk in r.iter_content(chunk_size=4096): 
                     if chunk: # filter out keep-alive new chunks
                         
                         dl += len(chunk)
