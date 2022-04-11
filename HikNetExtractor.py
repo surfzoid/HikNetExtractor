@@ -27,9 +27,9 @@ gettrace= sys.gettrace()
 # For debugging
 debug_status=True if gettrace else False
 if debug_status:
-    print("Running in debug IDE")
+    print("\033[1;31;40m Running in debug IDE")
 else:
-    print("Running outside debug IDE")
+    print("\033[1;32;40m Running outside debug IDE")
     procs = [p for p in psutil.process_iter() if 'python' in p.name() and __file__ in p.cmdline()]
     if len(procs) > 1:
         print('Process is already running...')

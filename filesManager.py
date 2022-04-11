@@ -42,7 +42,7 @@ def donloadfs(rtspuris):
         if not os.path.exists(DestFs):
             ActionDllFile('/ISAPI/ContentMgmt/download?playbackURI=' +
                           rtspuri, DestFs, DllXmlReq(rtspuri))
-            print(DestFs + " Downloaded")
+            print(DestFs + " \033[1;32;40m Downloaded")
     DelOldestDir()
 
 
@@ -69,11 +69,11 @@ def ValidSize(Fs, size):
         if b < size:
             try:
                 os.remove(Fs)
-                print("Existing file have not the good size, deleting it")
+                print("\033[1;31;40m Existing file have not the good size, deleting it")
             except:
-                print("Problem to delete file")
+                print("\033[1;31;40m Problem to delete file")
         else:
-            print("Existing file have the good size, pass")
+            print("\033[1;32;40m Existing file have the good size, pass")
 
 
 def DelOldestDir():

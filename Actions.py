@@ -88,7 +88,7 @@ def ActionDllFile(Wanted, filename, XmlData):
         print(t)
     except requests.exceptions.TooManyRedirects:
         # Tell the user their URL was bad and try a different one
-        print("Too Many Redirects")
+        print("\033[1;31;40m Too Many Redirects")
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
         print(e)
