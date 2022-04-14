@@ -1,6 +1,6 @@
-Provides functionality to extract perodicly only new or missing record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable.  
+Provides functionality to extract periodically only new or missing record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable.  
 The script will create a new dir peer day.  
-# Add this script to an scheduled tasks and you will keep records durring the number of day you put in the config.py  
+# Add this script to an schedule task and you will keep records during the number of day you put in the config.py  
 See also: http://www.hikvision.com/en/download.asp
 After wath you can backup video files throught the local network or the net, for example with rsyncd. Use QtVsPlayer, https://github.com/surfzoid/QtVsPlayer to read the video with green and red vector like in the web interface BUT Localy.  
 
