@@ -12,6 +12,7 @@ import requests
 from requests.auth import HTTPDigestAuth
 
 from config import password, url, username
+from colored import *
 
 #filename = str(datetime.now().strftime("%m-%d-%Y_%H:%M:%S")) + "nofilename.mp4"
 
@@ -88,7 +89,7 @@ def ActionDllFile(Wanted, filename, XmlData):
         print(t)
     except requests.exceptions.TooManyRedirects:
         # Tell the user their URL was bad and try a different one
-        print("\033[1;31;40m Too Many Redirects")
+        print(CRED + "Too Many Redirects" + CEND)
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
         print(e)

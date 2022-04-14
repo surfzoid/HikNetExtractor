@@ -2,6 +2,7 @@
 
 
 import os
+from colored import *
 from datetime import datetime
 from pathlib import Path
 
@@ -22,11 +23,15 @@ def parsertspuri(rtspuri):
     tmpdic = Delrtspurl[1].split("&")
     starttime = tmpdic[0].replace('starttime=', '').replace('T', '-') + "-"
     endtime = tmpdic[1].replace('endtime=', '').replace('T', '-') + "-"
+    
+    if starttime == "20220414-014652Z-":
+        print(CBLINK2 + CREDBG + "debug : " + starttime + "   " + endtime + CEND)
+        
     size = int(tmpdic[3].replace('size=', ''))
     name = tmpdic[2].replace('name=', '') + ".mp4"
     #filename = starttime + endtime + name
-    print("\033[1;32;40m Downloading : " + "\033[1;37;40m " + name)
-    print("\033[1;32;40m size= " + "\033[1;37;40m " + str(size/1000000) + " M")
+    print(CGREEN + "Downloading : " + CEND + name)
+    print(CGREEN + "size = " + CEND + str(size/1000000) + " M")
     FsName = PrepareDir(starttime[0:8]) + \
         starttime[0:15] + "-" + endtime[0:15] + "-" + name
     ValidSize(FsName, size)
@@ -34,15 +39,15 @@ def parsertspuri(rtspuri):
 
 
 def donloadfs(rtspuris):
-    print("\033[1;31;40m " + str(len(rtspuris)) + "\033[1;37;40m file(s) to Download")
+    print(CBLINK2 + CRED + str(len(rtspuris)) + CEND + " file(s) to Download")
     for rtspuri in rtspuris:
         #rtspuri = GetLocalip(rtspuri)
-        print("\033[1;32;40m rtspuri= " + "\033[1;37;40m " + rtspuri)
+        print(CGREENBG + "rtspuri= " + rtspuri + CEND)
         DestFs = parsertspuri(rtspuri)
         if not os.path.exists(DestFs):
             ActionDllFile('/ISAPI/ContentMgmt/download?playbackURI=' +
                           rtspuri, DestFs, DllXmlReq(rtspuri))
-            print("\033[1;37;40m " + DestFs + " \033[1;32;40m Downloaded")
+            print(CBLUE + DestFs + CRED + " Downloaded" + CEND)
     DelOldestDir()
 
 
@@ -69,11 +74,11 @@ def ValidSize(Fs, size):
         if b < size:
             try:
                 os.remove(Fs)
-                print("\033[1;31;40m Existing file have not the good size, deleting it")
+                print(CRED + "Existing file have not the good size, deleting it" + CEND)
             except:
-                print("\033[1;31;40m Problem to delete file")
+                print(CRED + "Problem to delete file" + CEND)
         else:
-            print("\033[2;36;40m Existing file have the good size, pass")
+            print(CRED + "Existing file have the good size, pass" + CEND)
 
 
 def DelOldestDir():
