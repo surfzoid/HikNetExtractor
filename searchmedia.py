@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
+import os
+import sys
 import xml.etree.ElementTree as ET
 from hashlib import new
 
 
 def GetVideoList(XmlData):
-    open("searchresult.xml", 'w').write(XmlData)
+    open(get_script_directory("searchresult.xml"), 'w').write(XmlData)
     xmlroot = ET.fromstring(XmlData)
 
     # Uses a list comprehension and element tree's iterparse function to create a dictionary containing the namespace prefix and it's uri. The underscore is utilized to remove the "start-ns" output from the list.
@@ -26,3 +28,10 @@ def GetVideoList(XmlData):
         rtspurilist.append(rtspurielement.text)
         # print(rtspurielement.text)
     return rtspurilist
+
+# Returns the directory the current script (or interpreter) is running in
+def get_script_directory(for_file = None):
+    path = os.path.realpath(sys.argv[0])
+    if not os.path.isdir(path):
+        path = os.path.dirname(path)
+    return os.path.join(path, for_file)
