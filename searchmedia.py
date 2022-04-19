@@ -7,13 +7,14 @@ from hashlib import new
 
 
 def GetVideoList(XmlData):
-    open(get_script_directory("searchresult.xml"), 'w').write(XmlData)
+    XFs = get_script_directory("searchresult.xml")
+    open(XFs, 'w').write(XmlData)
     xmlroot = ET.fromstring(XmlData)
 
     # Uses a list comprehension and element tree's iterparse function to create a dictionary containing the namespace prefix and it's uri. The underscore is utilized to remove the "start-ns" output from the list.
     #namespaces = {node[0]: node[1] for _, node in ET.iterparse("searchresult.xml", events=['start-ns'])}
     namespaces = {node[0]: node[1] for _, node in ET.iterparse(
-        "searchresult.xml", events=['start-ns'])}
+        XFs, events=['start-ns'])}
     # Iterates through the newly created namespace list registering each one.
     for key, value in namespaces.items():
         ET.register_namespace(key, value)
