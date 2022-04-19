@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 
+from genericpath import isfile
+from ntpath import join
 import os
 from colored import *
 from datetime import datetime
@@ -23,10 +25,11 @@ def parsertspuri(rtspuri):
     tmpdic = Delrtspurl[1].split("&")
     starttime = tmpdic[0].replace('starttime=', '').replace('T', '-') + "-"
     endtime = tmpdic[1].replace('endtime=', '').replace('T', '-') + "-"
-    
+
     if starttime == "20220414-014652Z-":
-        print(CBLINK2 + CREDBG + "debug : " + starttime + "   " + endtime + CEND)
-        
+        print(CBLINK2 + CREDBG + "debug : " +
+              starttime + "   " + endtime + CEND)
+
     size = int(tmpdic[3].replace('size=', ''))
     name = tmpdic[2].replace('name=', '') + ".mp4"
     #filename = starttime + endtime + name
@@ -34,7 +37,8 @@ def parsertspuri(rtspuri):
     print(CGREEN + "size = " + CEND + str(size/1000000) + " M")
     FsName = PrepareDir(starttime[0:8]) + \
         starttime[0:15] + "-" + endtime[0:15] + "-" + name
-    ValidSize(FsName, size)
+    #ValidSize(FsName, size)
+    PartialDll(FsName, name, size)
     return FsName
 
 
@@ -79,6 +83,15 @@ def ValidSize(Fs, size):
                 print(CRED + "Problem to delete file" + CEND)
         else:
             print(CRED + "Existing file have the good size, pass" + CEND)
+
+
+def PartialDll(FsName, name, size):
+    dir_path = os.path.dirname(os.path.realpath(FsName))
+    Files = [f for f in os.listdir(dir_path) if isfile(os.path.join(dir_path, f))]
+    
+    for Fs in Files:
+     if Fs.endswith(name):
+         ValidSize(os.path.join(dir_path, Fs), size)
 
 
 def DelOldestDir():
