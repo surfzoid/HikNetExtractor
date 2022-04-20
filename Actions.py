@@ -54,12 +54,6 @@ def ActionPut(Wanted):
     print(r.text)
 
 
-def ActionPut(Wanted):
-    r = requests.put("http://" + url + Wanted,
-                     auth=HTTPDigestAuth(username, password), timeout=15)
-    print(r.text)
-
-
 def ActionDllFile(Wanted, filename, XmlData):
     try:
         with requests.post(url="http://" + url + Wanted, stream=True,
