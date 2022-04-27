@@ -20,7 +20,15 @@ crontab -e
 3,18,33,48 * * * * ~/script/HikNetExtractor/NVR/HikNetExtractor.py  
 3,18,33,48 * * * * ~/script/HikNetExtractor/cam1/HikNetExtractor.py  
 3,18,33,48 * * * * ~/script/rsyncfbx.sh #sauvegarde des videos de la camera vers la maison  
- 
+
+# Tip
+To manualy select a day, open xmlreq.py, line 7, change :  
+
+ToDay = datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #  
+by
+ToDay = "2022-04-03" #datetime.now().strftime("%Y-%m-%d") #"2022-04-03" # 
+
+Optionaly, you can tweak start and end time lines 8 and 9.  
 # Enjoy  
 
 The Software is licensed, THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
