@@ -25,7 +25,7 @@ crontab -e
 To manualy select a day, open xmlreq.py, line 7, change :  
 
 ToDay = datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #  
-by
+by  
 ToDay = "2022-04-03" #datetime.now().strftime("%Y-%m-%d") #"2022-04-03" # 
 
 Optionaly, you can tweak start and end time lines 8 and 9.  
