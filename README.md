@@ -21,7 +21,7 @@ crontab -e
 3,18,33,48 * * * * ~/script/HikNetExtractor/cam1/HikNetExtractor.py  
 3,18,33,48 * * * * ~/script/rsyncfbx.sh #sauvegarde des videos de la camera vers la maison  
 
-# Tip
+# Tip  
 To manualy select a day, open xmlreq.py, line 7, change :  
 
 ToDay = datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #  
