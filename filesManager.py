@@ -112,7 +112,7 @@ def DelOldestDir():
 
     lendirs = len(list_of_dir)
     if lendirs > DaysToKeep:
-        for ExtraDir in list_of_dir[:DaysToKeep - lendirs]:
+        for ExtraDir in list_of_dir[:lendirs - DaysToKeep - 1]:
             remove_path(Path(os.path.join(SavePath, ExtraDir)))
 
 
