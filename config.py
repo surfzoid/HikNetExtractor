@@ -10,5 +10,5 @@ SavePath = "/tmp/hikextracted/camptz2/"
 # perhaps in the future, from now, use one HikNetExtract instance by cam
 CamName = ""
 DaysToKeep = 30
-# if true, UTC time offset of the computer is aply to end and start time of the file name.
-UtcTOfset = true
+# if "yes", UTC time offset of the computer is aply to end and start time of the file name.
+UtcTOfset = "yes"
