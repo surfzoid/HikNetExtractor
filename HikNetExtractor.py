@@ -13,6 +13,7 @@
 
 from datetime import datetime
 import sys
+from time import strftime
 
 from prompt_toolkit import Application
 import psutil
@@ -39,6 +40,7 @@ else:
 
     
 print(str(datetime.now()))
+print(strftime('%z'))
 # DelOldestDir()
 # Action('/ISAPI/System/reboot')
 # ActionGetSimple('/ISAPI/ContentMgmt/record/tracks')

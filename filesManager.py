@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 
 
-from genericpath import isfile
-from ntpath import join
-import os
-from colored import *
+
 from datetime import datetime
+from genericpath import isfile
+import os
+import time
+from colored import *
 from pathlib import Path
 
 from Actions import ActionDllFile
-from config import Channel, DaysToKeep, SavePath, url
+from config import Channel, DaysToKeep, SavePath, UtcTOfset, url
 from xmlreq import DllXmlReq
 
 starttime = ""
@@ -26,9 +27,9 @@ def parsertspuri(rtspuri):
     starttime = tmpdic[0].replace('starttime=', '').replace('T', '-') + "-"
     endtime = tmpdic[1].replace('endtime=', '').replace('T', '-') + "-"
 
-    if starttime == "20220414-014652Z-":
-        print(CBLINK2 + CREDBG + "debug : " +
-              starttime + "   " + endtime + CEND)
+    #if starttime == "20220414-014652Z-":
+    #    print(CBLINK2 + CREDBG + "debug : " +
+    #          starttime + "   " + endtime + CEND)
 
     size = int(tmpdic[3].replace('size=', ''))
     name = tmpdic[2].replace('name=', '') + ".mp4"
@@ -36,7 +37,7 @@ def parsertspuri(rtspuri):
     print(CGREEN + "Downloading : " + CEND + name)
     print(CGREEN + "size = " + CEND + str(size/1000000) + " M")
     FsName = PrepareDir(starttime[0:8]) + \
-        starttime[0:15] + "-" + endtime[0:15] + "-" + name
+        timestamp(starttime[0:15]) + "-" + timestamp(endtime[0:15]) + "-" + name
     #ValidSize(FsName, size)
     PartialDll(FsName, name, size)
     return FsName
@@ -123,3 +124,36 @@ def remove_path(path: Path):
     for p in path.iterdir():
         remove_path(p)
     path.rmdir()
+    
+def timestamp(date='20180501'):
+    
+    UnixTstamp = int(time.mktime(
+        datetime.strptime( date, "%Y%m%d-%H%M%S" ).timetuple()
+    ))
+    
+    UnixTstampAdd = UnixTstamp
+    
+    if UtcTOfset: 
+        UnixTstampAdd = UnixTstamp + int(time.strftime('%z')) * 6 * 6
+    
+    Result = datetime.fromtimestamp(UnixTstampAdd).strftime('%Y%m%d-%H%M%S')    
+    return Result
+    
+def UTCofssetAdd(tcheck):
+    tmpdic = tcheck.split("-")
+    Ttcheck = time(tmpdic[1])
+     
+    if UtcTOfset:
+        UtcTOf = time.strftime('%z')
+        HourN = UtcTOf[1:2]
+        if UtcTOf.startswith("+"):
+            Ttcheck = Ttcheck + HourN
+        else:
+            Ttcheck = Ttcheck - HourN
+    return tmpdic[0] + "-" + tmpdic[1]
+
+def Daylight():
+    if time.daylight > 0:
+        return time.altzone
+    else:
+        return time.timezone
