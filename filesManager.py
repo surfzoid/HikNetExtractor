@@ -6,6 +6,7 @@ from datetime import datetime
 from genericpath import isfile
 import os
 import time
+
 from colored import *
 from pathlib import Path
 
@@ -133,7 +134,7 @@ def timestamp(date='20180501'):
     
     UnixTstampAdd = UnixTstamp
     
-    if UtcTOfset: 
+    if UtcTOfset == "yes": 
         UnixTstampAdd = UnixTstamp + int(time.strftime('%z')) * 6 * 6
     
     Result = datetime.fromtimestamp(UnixTstampAdd).strftime('%Y%m%d-%H%M%S')    
