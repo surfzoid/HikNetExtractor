@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 from datetime import datetime
 
 from config import Channel, password, username
