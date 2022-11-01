@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from config import Channel, password, username
 
 ToDay = datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #
 if len(sys. argv) > 1:
-	ToDay = datetime.now().replace(day=datetime.now().day - int(sys.argv[1])).strftime("%Y-%m-%d")
+	ToDay = (datetime.now() - timedelta(days=int(sys.argv[1]))).strftime("%Y-%m-%d")
 	print(ToDay)
 startTime = ToDay + "T00:00:00Z"
 endTime = ToDay + "T23:59:59Z"
