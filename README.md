@@ -30,7 +30,7 @@ ToDay = "2022-04-03" #datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #
 
 Optionaly, you can tweak start and end time lines 8 and 9. 
 
-Funding
+# Funding
 If you like my job and be happy to buy me a beer or a coffee: https://paypal.me/EricPetit
 or
 https://fr.tipeee.com/eric-utopiste
