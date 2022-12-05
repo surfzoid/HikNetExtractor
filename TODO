@@ -1,2 +1,1 @@
-Add DSTOfset option. 
-The delete last day is broken. 
+Catch socket erro when camera is offline 
