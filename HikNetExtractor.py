@@ -88,7 +88,6 @@ print(strftime('%z'))
 # ActionGetSimple('/ISAPI/ContentMgmt/search/profile')
 #ActionGet('/ISAPI/ContentMgmt/download' , __DOWNLOAD_REQUEST_XML)
 #ActionPost('/ISAPI/ContentMgmt/record/tracks/10" + Channel + "1/dailyDistribution', __XML_trackDailyParam)
-#Answer = ActionPost('/ISAPI/ContentMgmt/search',__SEARCH_MEDIA_XML)
 Answer = ActionPost('/ISAPI/ContentMgmt/search', __SEARCH_MEDIA_XML)
 donloadfs(GetVideoList(Answer))
 

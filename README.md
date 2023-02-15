@@ -1,7 +1,7 @@
 Provides functionality to extract periodically only new or missing record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable.  
 The script will create a new dir peer day.  
 # Add this script to an schedule task and you will keep records during the number of day you put in the config.py  
-See also: http://www.hikvision.com/en/download.asp
+
 After wath you can backup video files throught the local network or the net, for example with rsyncd. Use QtVsPlayer, https://github.com/surfzoid/QtVsPlayer to read the video with green and red vector like in the web interface BUT Localy.  
 
 # My personal usage  
@@ -22,13 +22,10 @@ crontab -e
 3,18,33,48 * * * * ~/script/rsyncfbx.sh #sauvegarde des videos de la camera vers la maison  
 
 # Tip  
-To manualy select a day, open xmlreq.py, line 7, change :  
+HikNetextractor, take as argument, number of days from today to extract. 
+For example, ./HikNetEtractor 1 will extract video of today and yesterday.
 
-ToDay = datetime.now().strftime("%Y-%m-%d") #"2022-04-03" #  
-by  
-ToDay = "2022-04-03" #datetime.now().strftime("%Y-%m-%d") #"2022-04-03" # 
-
-Optionaly, you can tweak start and end time lines 8 and 9. 
+you can tweak start and end time lines 8 and 9, open xmlreq.py, line 7.  
 
 # Funding
 If you like my job and be happy to buy me a beer or a coffee: https://paypal.me/EricPetit
