@@ -4,6 +4,10 @@ The script will create a new dir peer day.
 
 After wath you can backup video files throught the local network or the net, for example with rsyncd. Use QtVsPlayer, https://github.com/surfzoid/QtVsPlayer to read the video with green and red vector like in the web interface BUT Localy.  
 
+# News  
+A nice GUI to manage the config.py file, creat DEVICES directory and setup a user systemd timer :  
+https://github.com/surfzoid/HNEWizard  
+
 # My personal usage  
 
 mkdir -p ~/script/cam1  
