@@ -1,0 +1,20 @@
+Source: hiknetextractor
+Section: video
+Priority: optional
+Maintainer: Eric Petit <surfzoid@gmail.com>
+Build-Depends: dh-make,
+               debhelper-compat (= 13)
+Standards-Version: 1.0.39-1
+Homepage: https://github.com/surfzoid/HikNetExtractor
+#Vcs-Browser: https://salsa.debian.org/debian/HikNetExtractor
+#Vcs-Git: https://salsa.debian.org/debian/HikNetExtractor.git
+Rules-Requires-Root: no
+
+Package: python-hiknetextractor
+Architecture: any
+Depends: ${shlibs:Depends},
+               ${misc:Depends},
+               hiknetextractor
+Description:hiknetextractor for Hikvision.
+ Provides functionality to extract periodically record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable. Add this script to an schedule task and you will keep records during the number of day you put in the config or use the GUI wizard /usr/bin/HikNetExtractor.
+
