@@ -1,6 +1,6 @@
 python-hiknetextractor (1.0.5) unstable; urgency=medium
 
   [ surfzoid ]
-  * Various bugfixes
+  * First release.
 
  -- Eric Petit <surfzoid@gmail.com>  Sun, 26 Mar 2023 17:49:20 +0200
