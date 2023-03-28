@@ -1,4 +1,4 @@
-Source: hiknetextractor
+Source: python-hiknetextractor
 Section: video
 Priority: optional
 Maintainer: Eric Petit <surfzoid@gmail.com>
