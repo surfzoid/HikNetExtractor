@@ -18,7 +18,7 @@
 	dh $@
 
 override_dh_auto_install:
-	mkdir -p /usr/share/HikNetExtractor/template/
-	cp -fv ./*.py /usr/share/HikNetExtractor/template/
-	cp -fv ./LICENSE /usr/share/HikNetExtractor/template/
-	cp -fv ./README.md /usr/share/HikNetExtractor/template/
+	mkdir -p usr/share/HikNetExtractor/template/
+	cp -fv ./*.py usr/share/HikNetExtractor/template/
+	cp -fv ./LICENSE usr/share/HikNetExtractor/template/
+	cp -fv ./README.md usr/share/HikNetExtractor/template/
