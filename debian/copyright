@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: hiknetextractor
+Upstream-Name: python-hiknetextractor
 Upstream-Contact: Eric Petit <surfzoid@gmail.com>
 Source: https://github.com/surfzoid/hiknetextractor
 
