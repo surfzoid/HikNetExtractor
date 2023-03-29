@@ -1,3 +1,5 @@
+[![Copr build status](https://copr.fedorainfracloud.org/coprs/surfzoid/HikNetExtractor/package/HikNetExtractor/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/surfzoid/HikNetExtractor/package/HikNetExtractor/)  
+
 Provides functionality to extract periodically only new or missing record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable.  
 The script will create a new dir peer day.  
 # Add this script to an schedule task and you will keep records during the number of day you put in the config.py  
