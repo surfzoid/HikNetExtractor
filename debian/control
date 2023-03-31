@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Eric Petit <surfzoid@gmail.com>
 Build-Depends: dh-make,
                debhelper-compat (= 13)
-Standards-Version: 1.0.5
+Standards-Version: 1.0.6
 Homepage: https://github.com/surfzoid/HikNetExtractor
 #Vcs-Browser: https://salsa.debian.org/debian/HikNetExtractor
 #Vcs-Git: https://salsa.debian.org/debian/HikNetExtractor.git
