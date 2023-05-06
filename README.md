@@ -1,6 +1,8 @@
+
+## RPMS:  
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/surfzoid/HikNetExtractor/package/HikNetExtractor/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/surfzoid/HikNetExtractor/package/HikNetExtractor/)  
- 
-[![Launchpad logo](http://media.launchpad.net/lp-badge-kit/launchpad-badge-w160px.png)](https://launchpad.net/~surfzoid)  
+## DEBS:  
+[![Launchpad logo](http://media.launchpad.net/lp-badge-kit/launchpad-badge-w160px.png)](https://launchpad.net/~surfzoid) 
 
 
 Provides functionality to extract periodically only new or missing record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable.  
