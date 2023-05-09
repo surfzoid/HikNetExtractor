@@ -4,6 +4,7 @@
 ## DEBS:  
 [![Launchpad logo](http://media.launchpad.net/lp-badge-kit/launchpad-badge-w160px.png)](https://launchpad.net/~surfzoid) 
 
+[![Upload Python Package](https://github.com/surfzoid/HikNetExtractor/actions/workflows/python-publish.yml/badge.svg)](https://github.com/surfzoid/HikNetExtractor/actions/workflows/python-publish.yml) 
 
 Provides functionality to extract periodically only new or missing record event from Hikvion camera or NVR with ISAPI and HTTPDigestAuth enable.  
 The script will create a new dir peer day.  
