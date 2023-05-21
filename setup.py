@@ -3,7 +3,7 @@ import os
 
 setup(
         name = 'HikNetExtractor',
-        version = '1.0.10',
+        version = '1.0.11',
         license = 'GNU General Public License v3 (GPLv3)',
         url = 'https://github.com/surfzoid/HikNetExtractor',
         description = 'Provides functionality to extract periodically record event from Hikvion camera or NVR.',
